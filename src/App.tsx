@@ -10,8 +10,7 @@ import { VantaGlobe } from "./Vanta";
 
 const DEFAULT_ID = "";
 
-// Examples will appear here once you create them. For now, this is empty since your contract is brand new!
-const EXAMPLES: { id: string; label: string }[] = [];
+
 
 type Loaded = { id: string; cov: Covenant | null; claims: (Claim | null)[]; settle: Settlement | null };
 
@@ -74,13 +73,7 @@ export default function App({ walletEnabled }: { walletEnabled: boolean }) {
             </form>
           </div>
           <div className="panel-b">
-            <div className="examples">
-              <span className="eyebrow">EXAMPLES</span>
-              {EXAMPLES.map((ex) => (
-                <button key={ex.id} onClick={() => { setQuery(ex.id); setId(ex.id); load(ex.id); }}
-                  aria-pressed={id === ex.id} className={id === ex.id ? "on" : ""}>{ex.label}</button>
-              ))}
-            </div>
+
             {loading ? <LoadingState /> : err ? (
               <div className="fb err">Read failed: {err}</div>
             ) : !data?.cov ? (
