@@ -269,7 +269,7 @@ function Actions({ defaultId, onDone }: { defaultId: string; onDone: () => void 
       {msg && (
         <div className={`fb ${msg.kind}`}>
           {msg.text}
-          {msg.tx && <> · <a href={`${EXPLORER}/tx/${msg.tx}`} target="_blank" rel="noreferrer">view tx ↗</a></>}
+          {msg.tx && <> · <a href={`${EXPLORER}/transactions/${msg.tx}`} target="_blank" rel="noreferrer">view tx ↗</a></>}
         </div>
       )}
     </div>
