@@ -56,7 +56,7 @@ export default function App({ walletEnabled }: { walletEnabled: boolean }) {
           <span>Bradbury · {CHAIN_ID}</span>
           <span aria-hidden>·</span>
           <Copyable text={CONTRACT} short />
-          <a href={`${EXPLORER}/contract/${CONTRACT}`} target="_blank" rel="noreferrer">explorer ↗</a>
+          <a href={`${EXPLORER}/address/${CONTRACT}`} target="_blank" rel="noreferrer">explorer ↗</a>
         </div>
       </header>
 
