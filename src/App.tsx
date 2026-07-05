@@ -8,13 +8,10 @@ import {
 import { MaturityRing, StatusBadge, VerdictPill, Copyable, Field, SkeletonLine } from "./components";
 import { VantaGlobe } from "./Vanta";
 
-const DEFAULT_ID = "smoke-1780504097";
+const DEFAULT_ID = "";
 
-// Real covenants spawned on this contract (Bradbury). Click to inspect live state.
-const EXAMPLES = [
-  { id: "smoke-1780504097", label: "psf/requests · RELEASED" },
-  { id: "geth-maintenance-1780520418", label: "go-ethereum · ACTIVE" },
-];
+// Examples will appear here once you create them. For now, this is empty since your contract is brand new!
+const EXAMPLES: { id: string; label: string }[] = [];
 
 type Loaded = { id: string; cov: Covenant | null; claims: (Claim | null)[]; settle: Settlement | null };
 
@@ -22,10 +19,11 @@ export default function App({ walletEnabled }: { walletEnabled: boolean }) {
   const [id, setId] = useState(DEFAULT_ID);
   const [query, setQuery] = useState(DEFAULT_ID);
   const [data, setData] = useState<Loaded | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
   async function load(target: string) {
+    if (!target) return;
     setLoading(true); setErr(null);
     try {
       const cov = await getCovenant(target);
