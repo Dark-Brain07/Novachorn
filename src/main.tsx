@@ -9,7 +9,7 @@ import "./theme.css";
 import App from "./App";
 
 // Public Privy client id (safe to ship). Override at build with VITE_PRIVY_APP_ID.
-const appId = import.meta.env.VITE_PRIVY_APP_ID || "cmpyd62aw005a0djrdbskj3xk";
+const appId = import.meta.env.VITE_PRIVY_APP_ID || "cmr3kc70600tn0clbv1kh9j3i";
 const root = createRoot(document.getElementById("root")!);
 
 const bradbury = {
