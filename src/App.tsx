@@ -11,7 +11,8 @@ import { VantaGlobe } from "./Vanta";
 const DEFAULT_ID = "test-agreement-001";
 
 const EXAMPLES = [
-  { id: "test-agreement-001", label: "test-agreement-001" }
+  { id: "test-agreement-001", label: "test-agreement-001" },
+  { id: "wiki-moon-landing", label: "wiki-moon-landing" }
 ];
 
 type Loaded = { id: string; cov: Covenant | null; claims: (Claim | null)[]; settle: Settlement | null };
