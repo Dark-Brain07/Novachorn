@@ -8,9 +8,11 @@ import {
 import { MaturityRing, StatusBadge, VerdictPill, Copyable, Field, SkeletonLine } from "./components";
 import { VantaGlobe } from "./Vanta";
 
-const DEFAULT_ID = "";
+const DEFAULT_ID = "test-agreement-001";
 
-
+const EXAMPLES = [
+  { id: "test-agreement-001", label: "test-agreement-001" }
+];
 
 type Loaded = { id: string; cov: Covenant | null; claims: (Claim | null)[]; settle: Settlement | null };
 
@@ -73,7 +75,13 @@ export default function App({ walletEnabled }: { walletEnabled: boolean }) {
             </form>
           </div>
           <div className="panel-b">
-
+            <div className="examples">
+              <span className="eyebrow">EXAMPLES</span>
+              {EXAMPLES.map((ex) => (
+                <button key={ex.id} onClick={() => { setQuery(ex.id); setId(ex.id); load(ex.id); }}
+                  aria-pressed={id === ex.id} className={id === ex.id ? "on" : ""}>{ex.label}</button>
+              ))}
+            </div>
             {loading ? <LoadingState /> : err ? (
               <div className="fb err">Read failed: {err}</div>
             ) : !data?.cov ? (
